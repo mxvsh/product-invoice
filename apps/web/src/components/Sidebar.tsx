@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, HStack, Stack, Text } from '@chakra-ui/react';
+import { Box, HStack, Text } from '@chakra-ui/react';
 import { FiHome, FiPlus, FiEye, FiSettings, FiFileText } from 'react-icons/fi';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const SIDEBAR_ITEMS = [
   {
@@ -32,26 +33,33 @@ const SIDEBAR_ITEMS = [
 ];
 
 const Sidebar = () => {
+  const r = useRouter();
+
   return (
     <Box>
-      {SIDEBAR_ITEMS.map((item) => (
-        <Link href={item.href} key={item.label}>
-          <HStack
-            py={1}
-            px={2}
-            rounded="md"
-            color="gray.600"
-            cursor="pointer"
-            _hover={{
-              bg: 'gray.100',
-            }}
-            fontSize="sm"
-          >
-            <Text>{item.icon}</Text>
-            <Text>{item.label}</Text>
-          </HStack>
-        </Link>
-      ))}
+      {SIDEBAR_ITEMS.map((item) => {
+        const isActive = r.pathname === item.href;
+
+        return (
+          <Link href={item.href} key={item.label}>
+            <HStack
+              py={1}
+              px={2}
+              rounded="md"
+              bg={isActive ? 'purple.50' : 'transparent'}
+              color={isActive ? 'purple.500' : 'gray.500'}
+              cursor="pointer"
+              _hover={{
+                bg: !isActive && 'gray.100',
+              }}
+              fontSize="sm"
+            >
+              <Text>{item.icon}</Text>
+              <Text>{item.label}</Text>
+            </HStack>
+          </Link>
+        );
+      })}
     </Box>
   );
 };

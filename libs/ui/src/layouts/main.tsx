@@ -9,17 +9,17 @@ type Props = {
 const MainLayout: React.FC<Props> = ({ title, sidebar, children }) => {
   return (
     <Flex
-      maxW="2xl"
+      maxW="lg"
       m="auto"
       p={4}
       alignItems="flex-start"
       flexDirection="row"
       gap={6}
     >
-      <Box w="44" pt={2}>
+      <Box w="26" pt={2}>
         {sidebar}
       </Box>
-      <Box w="full">
+      <Box flexGrow={1}>
         <Heading size="md" mb={4}>
           {title}
         </Heading>

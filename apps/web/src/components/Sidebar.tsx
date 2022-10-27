@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, HStack, Stack, Text } from '@chakra-ui/react';
-import { FiHome, FiPlus, FiEye, FiSettings } from 'react-icons/fi';
+import { FiHome, FiPlus, FiEye, FiSettings, FiFileText } from 'react-icons/fi';
 import Link from 'next/link';
 
 const SIDEBAR_ITEMS = [
@@ -18,6 +18,11 @@ const SIDEBAR_ITEMS = [
     label: 'View Products',
     icon: <FiEye />,
     href: '/view-products',
+  },
+  {
+    label: 'Invoices',
+    icon: <FiFileText />,
+    href: '/invoices',
   },
   {
     label: 'Settings',

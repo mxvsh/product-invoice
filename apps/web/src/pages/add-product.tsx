@@ -29,6 +29,11 @@ function AddProduct() {
           </InputGroup>
         </FormControl>
 
+        <FormControl>
+          <FormLabel fontSize="sm">Product Quantity (optional)</FormLabel>
+          <Input type="number" size="sm" placeholder="Enter product quantity" />
+        </FormControl>
+
         <Box>
           <Button colorScheme="purple" size="sm" leftIcon={<FiCheck />}>
             Submit

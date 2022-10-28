@@ -10,14 +10,17 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.3.6",
+    "@choc-ui/chakra-autocomplete": "^5.1.2",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/lato": "^4.5.10",
     "@nrwl/next": "15.0.3",
     "core-js": "^3.6.5",
     "framer-motion": "^7.6.1",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.38.0",
     "react-icons": "^4.6.0",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0"

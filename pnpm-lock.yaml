@@ -2,8 +2,10 @@ lockfileVersion: 5.4
 
 specifiers:
   '@chakra-ui/react': ^2.3.6
+  '@choc-ui/chakra-autocomplete': ^5.1.2
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
+  '@fontsource/lato': ^4.5.10
   '@nrwl/cli': 15.0.3
   '@nrwl/cypress': 15.0.3
   '@nrwl/eslint-plugin-nx': 15.0.3
@@ -40,6 +42,7 @@ specifiers:
   prettier: ^2.6.2
   react: 18.2.0
   react-dom: 18.2.0
+  react-hook-form: ^7.38.0
   react-icons: ^4.6.0
   react-test-renderer: 18.2.0
   regenerator-runtime: 0.13.7
@@ -50,14 +53,17 @@ specifiers:
 
 dependencies:
   '@chakra-ui/react': 2.3.6_52dwwvv74xnq27sg3u2frllav4
+  '@choc-ui/chakra-autocomplete': 5.1.2_mzdbjc6qccfnvw2zzqf6qap2pa
   '@emotion/react': 11.10.5_bxbjb6qksqjmm2wsj47f5rsgzm
   '@emotion/styled': 11.10.5_r3oqrctoje5p4fk6ufi4bdmrzq
+  '@fontsource/lato': 4.5.10
   '@nrwl/next': 15.0.3_wr3vk43k5azbjrsjtep3ktuemu
   core-js: 3.26.0
   framer-motion: 7.6.1_biqbaboplfbrettd7655fr4n2y
   next: 12.3.1_qtpcxnaaarbm4ws7ughq6oxfve
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.38.0_react@18.2.0
   react-icons: 4.6.0_react@18.2.0
   regenerator-runtime: 0.13.7
   tslib: 2.4.0
@@ -2330,6 +2336,30 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@choc-ui/chakra-autocomplete/5.1.2_mzdbjc6qccfnvw2zzqf6qap2pa:
+    resolution: {integrity: sha512-o38xzV6gQNHnkHhTzrSTbMVn/91lssQizfMLLfO8uUq3nBGRSylM4WRm9O1q6Jqh93hioBcBHwCn9oxIb5VO9w==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@chakra-ui/react': ^2.2.8
+      '@emotion/react': ^11.10.0
+      '@emotion/styled': ^11.10.0
+      framer-motion: ^6 || 7
+      react: ^18.2.0
+    dependencies:
+      '@chakra-ui/layout': 2.1.9_e5d2utcogkjxxdp5h2rcoxuz2u
+      '@chakra-ui/react': 2.3.6_52dwwvv74xnq27sg3u2frllav4
+      '@chakra-ui/react-utils': 2.0.8_react@18.2.0
+      '@chakra-ui/tag': 2.0.11_e5d2utcogkjxxdp5h2rcoxuz2u
+      '@chakra-ui/utils': 2.0.11
+      '@emotion/react': 11.10.5_bxbjb6qksqjmm2wsj47f5rsgzm
+      '@emotion/styled': 11.10.5_r3oqrctoje5p4fk6ufi4bdmrzq
+      framer-motion: 7.6.1_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-nanny: 2.14.0_react@18.2.0
+    transitivePeerDependencies:
+      - '@chakra-ui/system'
+    dev: false
+
   /@colors/colors/1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
@@ -2556,6 +2586,10 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+
+  /@fontsource/lato/4.5.10:
+    resolution: {integrity: sha512-2hYR6r661Cq9B8zugtu6yxuOKqrVhAgfOSaPSq8XoxbC4ebsl0KOTy/vPoP+9U7JuQVLfrmikirW4a9Z0nDUug==}
+    dev: false
 
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
@@ -9773,6 +9807,15 @@ packages:
       use-sidecar: 1.1.2_w5j4k42lgipnm43s3brx6h3c34
     dev: false
 
+  /react-hook-form/7.38.0_react@18.2.0:
+    resolution: {integrity: sha512-gxWW1kMeru9xR1GoR+Iw4hA+JBOM3SHfr4DWCUKY0xc7Vv1MLsF109oHtBeWl9shcyPFx67KHru44DheN0XY5A==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-icons/4.6.0_react@18.2.0:
     resolution: {integrity: sha512-rR/L9m9340yO8yv1QT1QurxWQvWpbNHqVX0fzMln2HEb9TEIrQRGsqiNFQfiv9/JEUbyHmHPlNTB2LWm2Ttz0g==}
     peerDependencies:
@@ -9790,6 +9833,14 @@ packages:
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+
+  /react-nanny/2.14.0_react@18.2.0:
+    resolution: {integrity: sha512-lX+SNWlpbIhN4h3zJQAtRqr7AXwldmgKxJ8e+eChFvMQISsZmHaR2SJujb3u1S6fpC5pUnYKsdbtwZXUG/4Qjw==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-refresh/0.10.0:
     resolution: {integrity: sha512-PgidR3wST3dDYKr6b4pJoqQFpPGNKDSCDx4cZoshjXipw3LzO7mG1My2pwEzz2JVkF+inx3xRpDeQLFQGH/hsQ==}

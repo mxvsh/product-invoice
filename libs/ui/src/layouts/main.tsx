@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Box, Flex, Heading, Stack } from '@chakra-ui/react';
 
 type Props = {
   title?: string;
@@ -20,10 +20,12 @@ const MainLayout: React.FC<Props> = ({ title, sidebar, children }) => {
         {sidebar}
       </Box>
       <Box flexGrow={1}>
-        <Heading size="md" mb={4}>
-          {title}
-        </Heading>
-        {children}
+        {title && (
+          <Heading size="md" mb={4}>
+            {title}
+          </Heading>
+        )}
+        <Stack>{children}</Stack>
       </Box>
     </Flex>
   );

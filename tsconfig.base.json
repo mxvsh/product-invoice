@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@product-invoice/services": ["libs/services/src/index.ts"],
       "@product-invoice/ui": ["libs/ui/src/index.ts"]
     }
   },

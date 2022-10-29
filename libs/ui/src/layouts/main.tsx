@@ -9,7 +9,7 @@ type Props = {
 const MainLayout: React.FC<Props> = ({ title, sidebar, children }) => {
   return (
     <Flex
-      maxW="lg"
+      maxW="2xl"
       m="auto"
       p={4}
       alignItems="flex-start"

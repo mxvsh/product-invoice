@@ -16,6 +16,7 @@ specifiers:
   '@nrwl/react': 15.0.3
   '@nrwl/web': 15.0.3
   '@nrwl/workspace': 15.0.3
+  '@prisma/client': ^4.5.0
   '@testing-library/react': 13.4.0
   '@types/jest': 28.1.1
   '@types/node': 18.7.18
@@ -40,6 +41,7 @@ specifiers:
   next: 12.3.1
   nx: 15.0.3
   prettier: ^2.6.2
+  prisma: ^4.5.0
   react: 18.2.0
   react-dom: 18.2.0
   react-hook-form: ^7.38.0
@@ -58,6 +60,7 @@ dependencies:
   '@emotion/styled': 11.10.5_r3oqrctoje5p4fk6ufi4bdmrzq
   '@fontsource/lato': 4.5.10
   '@nrwl/next': 15.0.3_wr3vk43k5azbjrsjtep3ktuemu
+  '@prisma/client': 4.5.0_prisma@4.5.0
   core-js: 3.26.0
   framer-motion: 7.6.1_biqbaboplfbrettd7655fr4n2y
   next: 12.3.1_qtpcxnaaarbm4ws7ughq6oxfve
@@ -99,6 +102,7 @@ devDependencies:
   jest-environment-jsdom: 28.1.1
   nx: 15.0.3
   prettier: 2.7.1
+  prisma: 4.5.0
   react-test-renderer: 18.2.0_react@18.2.0
   ts-jest: 28.0.5_mcmco7amasfyj6536f3r5ncpvu
   ts-node: 10.9.1_2cnt46lw4tdywdelgueo3bh3pq
@@ -3730,6 +3734,28 @@ packages:
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
+
+  /@prisma/client/4.5.0_prisma@4.5.0:
+    resolution: {integrity: sha512-B2cV0OPI1smhdYUxsJoLYQLoMlLH06MUxgFUWQnHodGMX98VRVXKmQE/9OcrTNkqtke5RC+YU24Szxd04tZA2g==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452
+      prisma: 4.5.0
+    dev: false
+
+  /@prisma/engines-version/4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452:
+    resolution: {integrity: sha512-o7LyVx8PPJBLrEzLl6lpxxk2D5VnlM4Fwmrbq0NoT6pr5aa1OuHD9ZG+WJY6TlR/iD9bhmo2LNcxddCMr5Rv2A==}
+    dev: false
+
+  /@prisma/engines/4.5.0:
+    resolution: {integrity: sha512-4t9ir2SbQQr/wMCNU4YpHWp5hU14J2m3wHUZnGJPpmBF8YtkisxyVyQsKd1e6FyLTaGq8LOLhm6VLYHKqKNm+g==}
+    requiresBuild: true
 
   /@rollup/plugin-babel/5.3.1_vyv4jbhmcriklval33ak5sngky:
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}
@@ -9668,6 +9694,14 @@ packages:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
       react-is: 18.2.0
+
+  /prisma/4.5.0:
+    resolution: {integrity: sha512-9Aeg4qiKlv9Wsjz4NO8k2CzRzlvS3A4FYVJ5+28sBBZ0eEwbiVOE/Jj7v6rZC1tFW2s4GSICQOAyuOjc6WsNew==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.5.0
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}

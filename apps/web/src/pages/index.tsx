@@ -156,17 +156,30 @@ export function Index() {
         <Table variant="striped" size="sm">
           <Thead>
             <Tr>
+              <Th w="1"></Th>
               <Th>Name</Th>
-              <Th>Quantity</Th>
-              <Th>Cost</Th>
+              <Th isNumeric>Quantity</Th>
+              <Th isNumeric>Cost</Th>
             </Tr>
           </Thead>
           <Tbody>
             {products.map((product, idx) => {
               return (
                 <Tr key={idx} fontSize="sm">
-                  <Td>{product.name}</Td>
+                  <Td cursor="pointer">
+                    <FiX
+                      onClick={() => {
+                        setProducts((prev) => {
+                          const newProducts = [...prev];
+                          newProducts.splice(idx, 1);
+                          return newProducts;
+                        });
+                      }}
+                    />
+                  </Td>
+                  <Td>{product.name} </Td>
                   <Td
+                    isNumeric
                     contentEditable
                     onKeyUp={(e: any) => {
                       if (e.key === 'Enter') {
@@ -192,18 +205,7 @@ export function Index() {
                   >
                     {product.quantity}
                   </Td>
-                  <Td>₹{product.cost.toFixed(2)}</Td>
-                  <Td cursor="pointer">
-                    <FiX
-                      onClick={() => {
-                        setProducts((prev) => {
-                          const newProducts = [...prev];
-                          newProducts.splice(idx, 1);
-                          return newProducts;
-                        });
-                      }}
-                    />
-                  </Td>
+                  <Td isNumeric>₹{product.cost.toFixed(2)}</Td>
                 </Tr>
               );
             })}

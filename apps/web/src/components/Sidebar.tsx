@@ -1,6 +1,13 @@
 import React from 'react';
 import { Box, HStack, Text } from '@chakra-ui/react';
-import { FiHome, FiPlus, FiEye, FiSettings, FiFileText } from 'react-icons/fi';
+import {
+  FiHome,
+  FiFilter,
+  FiPlus,
+  FiEye,
+  FiSettings,
+  FiFileText,
+} from 'react-icons/fi';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -9,6 +16,11 @@ const SIDEBAR_ITEMS = [
     label: 'Home',
     icon: <FiHome />,
     href: '/',
+  },
+  {
+    label: 'Categories',
+    icon: <FiFilter />,
+    href: '/categories',
   },
   {
     label: 'Add Product',

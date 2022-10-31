@@ -16,6 +16,7 @@
     "@fontsource/lato": "^4.5.10",
     "@nrwl/next": "15.0.3",
     "@prisma/client": "^4.5.0",
+    "@reduxjs/toolkit": "^1.8.6",
     "core-js": "^3.6.5",
     "framer-motion": "^7.6.1",
     "next": "12.3.1",
@@ -23,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.38.0",
     "react-icons": "^4.6.0",
+    "react-redux": "^8.0.4",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0"
   },

@@ -26,47 +26,16 @@ import {
   AutoCompleteItem,
   AutoCompleteList,
 } from '@choc-ui/chakra-autocomplete';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiX } from 'react-icons/fi';
-
-const PRODUCTS_LIST = [
-  {
-    name: 'Paraxin 250',
-    price: 103.11,
-    quantity: 10,
-  },
-
-  {
-    name: 'Paraxin 500',
-    price: 195.71,
-    quantity: 10,
-  },
-  {
-    name: 'Movex P',
-    price: 59.4,
-    quantity: 10,
-  },
-  {
-    name: 'Bio D3 Plus',
-    price: 273.9,
-    quantity: 15,
-  },
-  {
-    name: 'Nimesel P',
-    price: 59.6,
-    quantity: 10,
-  },
-  {
-    name: 'Dexona Tab',
-    price: 6.38,
-    quantity: 30,
-  },
-];
+import { useGetProductsQuery } from '../app/features/product/services';
 
 export function Index() {
   const form = useForm();
+  const name = form.watch('name');
   const [products, setProducts] = useState([]);
+  const { data: productsFromDb } = useGetProductsQuery(name);
 
   const totalAmount = useMemo(
     () => products.reduce((acc, product) => acc + product.cost, 0),
@@ -74,7 +43,7 @@ export function Index() {
   );
 
   const handleSubmit = (data) => {
-    const product = PRODUCTS_LIST.find((p) => p.name === data.name);
+    const product = productsFromDb.find((p) => p.name === data.name);
 
     if (!data.quantity || !data.name) return;
 
@@ -83,6 +52,7 @@ export function Index() {
         name: data.name,
         price: product.price,
         quantity: parseInt(data.quantity),
+        original_quantity: product.quantity,
         cost: Number(
           (product.price / product.quantity) * parseInt(data.quantity)
         ),
@@ -105,11 +75,12 @@ export function Index() {
               <AutoComplete>
                 <AutoCompleteInput
                   size="sm"
+                  autoComplete="off"
                   placeholder="Enter product name"
                   {...form.register('name')}
                 />
                 <AutoCompleteList fontSize={12}>
-                  {PRODUCTS_LIST.map((product, cid) => (
+                  {productsFromDb?.map((product, cid) => (
                     <AutoCompleteItem
                       key={`option-${cid}`}
                       value={product.name}
@@ -152,11 +123,11 @@ export function Index() {
 
       <Divider my={4} />
 
-      <TableContainer>
+      <TableContainer display={products.length > 0 ? 'block' : 'none'}>
         <Table variant="striped" size="sm">
           <Thead>
             <Tr>
-              <Th w="1"></Th>
+              {/* <Th w="1"></Th> */}
               <Th>Name</Th>
               <Th isNumeric>Quantity</Th>
               <Th isNumeric>Cost</Th>
@@ -166,7 +137,7 @@ export function Index() {
             {products.map((product, idx) => {
               return (
                 <Tr key={idx} fontSize="sm">
-                  <Td cursor="pointer">
+                  {/* <Td cursor="pointer">
                     <FiX
                       onClick={() => {
                         setProducts((prev) => {
@@ -176,36 +147,47 @@ export function Index() {
                         });
                       }}
                     />
-                  </Td>
-                  <Td>{product.name} </Td>
-                  <Td
-                    isNumeric
-                    contentEditable
-                    onKeyUp={(e: any) => {
-                      if (e.key === 'Enter') {
-                        e.target.blur();
-                      }
-                    }}
-                    onBlur={(e: any) => {
-                      const { textContent } = e.target;
-                      const productData = PRODUCTS_LIST.find(
-                        (p) => p.name === product.name
-                      );
-                      const rate = productData.price / productData.quantity;
-                      const newPrice = rate * parseInt(textContent);
+                  </Td> */}
+                  <Td w="44">{product.name}</Td>
+                  <Td w="14" isNumeric>
+                    <Input
+                      size="xs"
+                      textAlign="right"
+                      defaultValue={product.quantity}
+                      onKeyUp={(e: any) => {
+                        if (e.key === 'Enter') {
+                          e.target.blur();
+                        }
+                      }}
+                      onBlur={(e) => {
+                        let { value } = e.target;
+                        if (!value) {
+                          value = '0';
+                        }
 
-                      setProducts((prev) => {
-                        const newProducts = [...prev];
-                        newProducts[idx].quantity = parseInt(textContent);
-                        newProducts[idx].cost = newPrice;
+                        const productData = products.find(
+                          (p) => p.name === product.name
+                        );
 
-                        return newProducts;
-                      });
-                    }}
-                  >
-                    {product.quantity}
+                        if (!productData) return;
+
+                        const rate =
+                          productData.price / productData.original_quantity;
+                        const newPrice = rate * parseInt(value);
+
+                        setProducts((prev) => {
+                          const newProducts = [...prev];
+                          newProducts[idx].quantity = parseInt(value);
+                          newProducts[idx].cost = newPrice;
+
+                          return newProducts;
+                        });
+                      }}
+                    />
                   </Td>
-                  <Td isNumeric>₹{product.cost.toFixed(2)}</Td>
+                  <Td w="24" isNumeric>
+                    ₹{product.cost.toFixed(2)}
+                  </Td>
                 </Tr>
               );
             })}

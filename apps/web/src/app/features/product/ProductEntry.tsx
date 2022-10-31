@@ -27,6 +27,7 @@ const ProductEntry = () => {
     };
 
     await createProduct(payload);
+    form.reset();
   };
 
   return (

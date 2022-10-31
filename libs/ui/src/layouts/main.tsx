@@ -16,9 +16,7 @@ const MainLayout: React.FC<Props> = ({ title, sidebar, children }) => {
       flexDirection="row"
       gap={6}
     >
-      <Box w="26" pt={2}>
-        {sidebar}
-      </Box>
+      <Box w="26">{sidebar}</Box>
       <Box flexGrow={1}>
         {title && (
           <Heading size="md" mb={4}>

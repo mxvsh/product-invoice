@@ -18,3 +18,32 @@ The application comes with a web based user interface which helps you to generat
 - [ ] Add options inside settings
 - [ ] Responsive design
 - [ ] Discount option
+
+
+# Development
+
+In order to work on this project, you must follow these steps.
+
+## Step 1
+
+Clone the repository to your computer using the following command.
+
+`git clone https://github.com/xencodes/product-invoice`
+
+## Step 2
+
+Run the installation command to install all the dependencies required in order to run this application. Since
+
+`pnpm install`
+
+## Step 4
+
+Since we are using Prisma, we must then set up the database, which by default uses a SQLite database. To create database structure, use the following command.
+
+`npx prisma db push`
+
+ ## Step 5
+ 
+ Start the server
+ 
+ `pnpm nx serve`

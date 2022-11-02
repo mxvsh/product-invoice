@@ -5,7 +5,6 @@ export const productApi = createApi({
   reducerPath: 'pokemonApi',
   baseQuery: fetchBaseQuery(),
   endpoints: (builder) => ({
-    // todo: sperate function for searching
     getProducts: builder.query<Product[], string | void>({
       query: (query) => `/api/products${query ? `?query=${query}` : ''}`,
     }),
